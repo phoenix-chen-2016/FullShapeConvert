@@ -2,7 +2,8 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
-BenchmarkRunner.Run<Test>();
+//BenchmarkRunner.Run<Test>();
+Console.WriteLine(Test.轉全形文字3("1234567890"));
 
 public class Test
 {
@@ -58,14 +59,14 @@ public class Test
 
 		for (int i = 0; i < input.Length; i++)
 		{
-			if (c[i] == 32)
+			if (input[i] == 32)
 			{
 				c[i] = (char)12288; // Unicode 12288 是「全形空格字元」
 				continue;
 			}
-			else if (c[i] > 32 && c[i] < 127)
+			else if (input[i] > 32 && input[i] < 127)
 			{
-				c[i] += (char)65248;
+				c[i] = (char)(input[i] + 65248);
 			}
 			else
 			{
